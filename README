@@ -46,3 +46,7 @@ Configuration
 -------------
 The configuration of dwm is done by creating a custom config.h
 and (re)compiling the source code.
+
+Additions: 
+ * `xrandr monitor --output eDP --mode 1920x1080 --rate 61` (60Hz breaks)/
+ * `pactl set-sink-volume @SINK_NAME <value>` avoid using id, go for the sink name.(pactl list short sinks)
