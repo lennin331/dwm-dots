@@ -1,8 +1,11 @@
 # dwmblocks
-Modular status bar for dwm written in c.
+Modular status bar for dwm written in c.</br>
+Follow the [Community Repo](https://github.com/torrinfail/dwmblocks) for more info. 
 # usage
 To use dwmblocks first run 'make' and then install it with 'sudo make install'.
 After that you can put dwmblocks in your xinitrc or other startup script to have it start with dwm.
+> If `blocks.h` is hidden make changes in `blocks.def.h` then, 
+`cp blocks.def.h blocks.h`
 # modifying blocks
 The statusbar is made from text output from commandline programs.
 Blocks are added and removed by editing the blocks.h header file.
