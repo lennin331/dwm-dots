@@ -1,5 +1,5 @@
 /* See LICENSE file for copyright and license details. */
-
+#include <X11/XF86keysym.h>
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -59,14 +59,30 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "alacritty", "-e", "fish",  NULL };
+static const char *termcmd[]  = { "alacritty",  NULL };
 static const char *shutdowncmd[] = {"shutdown", "now", NULL };
+static const char *brupcmd[] = { "brightnessctl", "set", "10%+", NULL };
+static const char *brdowncmd[] = { "brightnessctl", "set", "10%-", NULL };
+static const char *shotcmd[] = { "maim", "-s", "/home/lennin/Pictures/Screenshots/screenshot-(date + \"%Y-%m-%d-%H-%M-%S\").png", NULL };
+static const char *headphoneupcmd[] = {"pactl", "set-sink-volume", "alsa_output.usb-Generic_AB13X_USB_Audio_0296A1-00.analog-stereo", "+10%", NULL};
+static const char *headphonedowncmd[] = {"pactl", "set-sink-volume", "alsa_output.usb-Generic_AB13X_USB_Audio_0296A1-00.analog-stereo", "-10%", NULL};
+static const char *speakercmd[] = {"pactl", "set-sink-volume", "54", "0", NULL};
+static const char *filemanagercmd[] = {"bash","-c", "nautilus", NULL};
+static const char *obsidiancmd[] = {"md.obsidian.Obsidian", NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+  { 0,          XF86XK_MonBrightnessUp,      spawn,          {.v = brupcmd} },
+  { 0,        XF86XK_MonBrightnessDown,      spawn,          {.v = brdowncmd} },
+  {0,          XF86XK_AudioRaiseVolume,      spawn,          {.v = headphoneupcmd }},
+  {0,          XF86XK_AudioLowerVolume,      spawn,          {.v = headphonedowncmd }},
+  {0,                 XF86XK_AudioMute,      spawn,          {.v = speakercmd }},
   { MODKEY|ShiftMask,             XK_0,      spawn,          {.v = shutdowncmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = shotcmd } },
+	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = filemanagercmd } },
+	{ MODKEY,                       XK_o,      spawn,          {.v = obsidiancmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
