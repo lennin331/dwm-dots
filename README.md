@@ -1,5 +1,5 @@
 ## Custom DWM config
----
+
 ### Bindings
 - Add Feature Bindings
 ### Dependencies
