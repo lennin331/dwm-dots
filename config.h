@@ -66,6 +66,7 @@ static const char *brupcmd[] = { "brightnessctl", "set", "10%+", NULL };
 static const char *brdowncmd[] = { "brightnessctl", "set", "10%-", NULL };
 static const char *shotcmd[] = { "./screenshot.sh", NULL };
 static const char *headphoneupcmd[] = {"pactl", "set-sink-volume", "alsa_output.usb-Generic_AB13X_USB_Audio_0296A1-00.analog-stereo", "+10%", NULL};
+//Audio via aux/headphone jack should be handled
 static const char *headphonedowncmd[] = {"pactl", "set-sink-volume", "alsa_output.usb-Generic_AB13X_USB_Audio_0296A1-00.analog-stereo", "-10%", NULL};
 static const char *speakercmd[] = {"pactl", "set-sink-volume", "alsa_output.pci-0000_08_00.6.HiFi__Speaker__sink", "0", NULL};
 static const char *filemanagercmd[] = {"bash","-c", "nautilus", NULL};
