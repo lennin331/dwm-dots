@@ -65,10 +65,9 @@ static const char *shutdowncmd[] = {"shutdown", "now", NULL };
 static const char *brupcmd[] = { "brightnessctl", "set", "10%+", NULL };
 static const char *brdowncmd[] = { "brightnessctl", "set", "10%-", NULL };
 static const char *shotcmd[] = { "./screenshot.sh", NULL };
-static const char *headphoneupcmd[] = {"pactl", "set-sink-volume", "alsa_output.usb-Generic_AB13X_USB_Audio_0296A1-00.analog-stereo", "+10%", NULL};
-//Audio via aux/headphone jack should be handled
-static const char *headphonedowncmd[] = {"pactl", "set-sink-volume", "alsa_output.usb-Generic_AB13X_USB_Audio_0296A1-00.analog-stereo", "-10%", NULL};
-static const char *speakercmd[] = {"pactl", "set-sink-volume", "alsa_output.pci-0000_08_00.6.HiFi__Speaker__sink", "0", NULL};
+static const char *volumeupcmd[] = {"pactl", "set-sink-volume", "@DEFAULT_SINK@", "+10%"};
+static const char *volumedowncmd[] = {"pactl", "set-sink-volume", "@DEFAULT_SINK@", "-10%"};
+static const char *mutecmd[] = {"pactl", "set-sink-volume", "@DEFAULT_SINK@", "0"};
 static const char *filemanagercmd[] = {"bash","-c", "nautilus", NULL};
 static const char *obsidiancmd[] = {"md.obsidian.Obsidian", NULL};
 static const char *wallpapercmd[] = {"./wallpaper-selector.sh", NULL};
@@ -77,9 +76,9 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
   { 0,          XF86XK_MonBrightnessUp,      spawn,          {.v = brupcmd} },
   { 0,        XF86XK_MonBrightnessDown,      spawn,          {.v = brdowncmd} },
-  {0,          XF86XK_AudioRaiseVolume,      spawn,          {.v = headphoneupcmd }},
-  {0,          XF86XK_AudioLowerVolume,      spawn,          {.v = headphonedowncmd }},
-  {0,                 XF86XK_AudioMute,      spawn,          {.v = speakercmd }},
+  {0,          XF86XK_AudioRaiseVolume,      spawn,          {.v = volumeupcmd }},
+  {0,          XF86XK_AudioLowerVolume,      spawn,          {.v = volumedowncmd }},
+  {0,                 XF86XK_AudioMute,      spawn,          {.v = mutecmd }},
   { MODKEY|ShiftMask,             XK_0,      spawn,          {.v = shutdowncmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
