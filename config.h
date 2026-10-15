@@ -17,6 +17,7 @@ static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+
 };
 
 /* tagging */
@@ -28,8 +29,9 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "Gimp",     NULL,       NULL,       0,            0,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+  { "dwm_clip",   NULL,       NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
@@ -71,6 +73,7 @@ static const char *mutecmd[] = {"pactl", "set-sink-volume", "@DEFAULT_SINK@", "0
 static const char *filemanagercmd[] = {"bash","-c", "nautilus", NULL};
 static const char *obsidiancmd[] = {"md.obsidian.Obsidian", NULL};
 static const char *wallpapercmd[] = {"./wallpaper-selector.sh", NULL};
+static const char *clipcmd[] = { "alacritty", "--class", "dwm_clip", "-o", "window.dimensions.columns=60", "-o", "window.dimensions.lines=20", "-e", "/home/lennin/.local/bin/dwm_clip", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -81,6 +84,7 @@ static const Key keys[] = {
   {0,                 XF86XK_AudioMute,      spawn,          {.v = mutecmd }},
   { MODKEY|ShiftMask,             XK_0,      spawn,          {.v = shutdowncmd } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY|ShiftMask,             XK_c,      spawn,          {.v = clipcmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = shotcmd } },
 	{ MODKEY|ShiftMask,             XK_f,      spawn,          {.v = filemanagercmd } },
