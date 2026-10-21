@@ -5,3 +5,9 @@ SELECTED=$(ls "$WALLPAPER_DIR" | dmenu -l 15 -p "Select wallpaper: ")
 IMAGE_PATH="$WALLPAPER_DIR/$SELECTED"
 xwallpaper --stretch "$IMAGE_PATH"
 echo "$IMAGE_PATH" > ~/wallpaper/.wallpaper
+
+#the wallpapers must be inside the "wallpaper" dir in Home
+#touch .wallpaper - stores the recent used wallpaper that called @ .xinitrc
+#[ -f ~/wallpaper/.wallpaper ] && xwallpaper --zoom "$(cat ~/wallpaper/.wallpaper)" &
+
+#Github: lennin331
