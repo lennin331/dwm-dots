@@ -9,7 +9,8 @@ static const Block blocks[] = {
 	{"Bat:",  "cat /sys/class/power_supply/BAT0/capacity | awk '{print $0\"%\"}'",     5,    0}
 };
 
-// sets delimiter between status commands. NULL character ('\0') means no delimiter.
+//Sets delimiter between status commands. NULL character ('\0') means no delimiter.
 static char delim[] = " | ";
 static unsigned int delimLen = 5;
+//.gitignore goes over blocks.h - run - cp blocks.def.h blocks.h
 //Github:lennin331
