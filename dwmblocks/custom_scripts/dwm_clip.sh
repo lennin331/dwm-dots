@@ -25,3 +25,9 @@ if [ -n "$selected" ]; then
     echo -n "$selected" | xclip -selection clipboard
     echo -n "$selected" | xclip -selection primary
 fi
+
+# In monocle or stack mode the clip history adapts the current mode attributes and treated as a terminal window
+# Requires manual exit or killactive bind to close the clip history
+
+
+#Github: lennin331
