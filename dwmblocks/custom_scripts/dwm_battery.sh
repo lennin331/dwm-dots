@@ -36,7 +36,7 @@ while true; do
         rm -f "$LOCK_LOW" "$LOCK_CRIT" "$LOCK_FULL"
 
         if [ ! -f "$LOCK_CHR" ]; then
-            notify-send -t 1500 -u low -i battery-charging "Charging" "Battery is charging <b>${CAPACITY}%</b>."
+            notify-send -t 2500 -u low -i battery-charging "Charging" "Battery is charging <b>${CAPACITY}%</b>."
             touch "$LOCK_CHR"
         fi
 
@@ -44,7 +44,7 @@ while true; do
         rm -f "$LOCK_LOW" "$LOCK_CRIT" "$LOCK_CHR"
 
         if [ ! -f "$LOCK_FULL" ]; then
-            notify-send -t 1500 -u low -i battery-charging "Charging Completed" "Battery is fully charged <b>100%</b>."
+            notify-send -t 2500 -u low -i battery-charging "Charging Completed" "Battery is fully charged <b>100%</b>."
             touch "$LOCK_FULL"
         fi
     fi
