@@ -5,7 +5,8 @@ https://git.suckless.org/dwm
 ### Bindings
 - Add Feature Bindings
 ### Dependencies
-- Add the dependency libraries and x11 packs, runtime env, font packs, everything added over arch minimal setup
+- Add the dependency libraries and x11 packs, runtime env, font packs, picom ... everything added over arch
+- Add .xinitrc
 - Alacritty and fish config
 - Nvim binds and lsp
 ### Scripts 
